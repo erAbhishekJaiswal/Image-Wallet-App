@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import axios from 'axios';
+import StudentForm from './components/StudentForm';
+import StudentList from './components/StudentList';
+import StudentProfile from './components/StudentProfile';
+import Navbar from './components/Navbar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    
+    // const [students, setStudents] = useState([]);
+    // const fetchStudents = async () => {
+    //     const response = await axios.get('http://localhost:5000/api/students');
+    //     setStudents(response.data);
+    // };
+    // useEffect(() => {
+    //     fetchStudents();
+    // }, []);
+
+    return (
+        <Router>
+            <>
+                <Navbar/>
+                {/* <StudentList students={students} /> */}
+                <Routes>
+                    <Route path="/" element={<StudentList/>} />
+                    <Route path="/image/add" element={<StudentForm/>} />
+                    <Route path="/image/:id" element={<StudentProfile/>} />
+                </Routes>
+            </>
+        </Router>
+    );
+};
 
 export default App;
