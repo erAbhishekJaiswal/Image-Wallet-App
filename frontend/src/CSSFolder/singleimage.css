@@ -1,0 +1,208 @@
+   .profilemainbox {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        min-height: 90vh;
+        background-color: #171212;
+        color: white;
+    }
+    .img-title{
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .profilecard {
+        width: 95%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        /* border: 1px solid black; */
+        border-radius: 10px;
+        margin: 15px;
+    }
+
+    .imagesection {
+        display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            height: 520px;
+            border: 2px solid rgb(204, 204, 204);
+            border-radius: 8px;
+            overflow: hidden;
+            /* background-color: rgb(249, 249, 249); */
+    }
+    .imageinfo-box{
+        width: 35%;
+    }
+
+    .oneimage {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .name {
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .discription {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .date {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .suggested{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background-color: #171212;
+        color: white;
+    }
+    .suggested-box{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .suggested-card{
+        width: 290px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        /* border: 1px solid black; */
+        border-radius: 10px;
+        margin: 15px;
+    }
+    .suggested-image{
+        width: 100%;
+        height: 100%;
+    }
+    .down-btns{
+        width: 100%;
+        background: transparent;
+        
+    }
+    .download-btn{
+        display: flex;
+        align-items: center;
+        border: none;
+        background-color: rgb(36, 36, 255);
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+
+/* @media screen and (min-width: 1024px){
+    .profilemainbox{
+        width: 40%;
+        background-color: red;
+    }
+} */
+
+
+@media screen and (max-width: 768px) {
+.profilemainbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 20px; */
+    /* margin-bottom: 35px; */
+}
+.profilecard {
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    /* padding: 20px;
+    margin: 20px; */
+}
+
+.imagesection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 90%;
+    border-radius: 10px;
+    /* border: 1px solid black; */
+    width: 95%;
+}
+
+.oneimage {
+    width: 95%;
+    height: 90%;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.name {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.discription {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.date {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.suggested-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.suggested-card {
+    width: 291px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    margin: 15px;
+}
+.imageinfo-box{
+    width: 90%;
+}
+.down-btns{
+    width: 90%;
+}
+.download-btn{
+    border: none;
+}
+}
+
+
+ 

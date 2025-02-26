@@ -1,0 +1,46 @@
+.navbar{
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    /* position: fixed; */
+}
+.logo{
+    padding-left: 10px;
+    display: flex;
+    font-size: 20px;
+}
+.navlinks{
+    /* padding-right: 10px; */
+    display: flex;
+    list-style-type: none;
+    gap: 15px;
+    align-items: center;
+}
+.link{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.uploadbtn{
+    background-color: rgb(84, 215, 69);
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.upload-btn{
+    color: black;
+    font-size: 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.upload-icon{
+    font-size: 20px;
+    
+}
