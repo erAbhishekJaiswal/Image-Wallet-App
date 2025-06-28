@@ -8,7 +8,7 @@ const ImageList = () => {
     const [students, setStudents] = useState([]);
 
     const fetchStudents = async () => {
-        const response = await axios.get('http://localhost:5000/api/students');
+        const response = await axios.get('https://image-wallet-backend.vercel.app/api/students/');
         setStudents(response.data);
         // console.log(response.data);
     };
@@ -19,15 +19,15 @@ const ImageList = () => {
         <div className='allimage-container-box'>
             <h2>Image List</h2>
             <div className='stdentslist'
-                >
-               {students ? students.map((student) => (
-  <div className="imagelist-frame-box" key={student._id}>
-    <Link className='alllink' to={`/image/${student._id}`}>
-      <img className='allimage' src={`http://localhost:5000/${student.profilePhoto}`} alt={student.name} />
-      <div className='allname'>{student.name}</div>
-    </Link>
-  </div>
-)) : <p>Loading...</p>}
+            >
+                {students ? students.map((student) => (
+                    <div className="imagelist-frame-box" key={student._id}>
+                        <Link className='alllink' to={`/image/${student._id}`}>
+                            <img className='allimage' src={`https://image-wallet-backend.vercel.app/${student.profilePhoto}`} alt={student.name} />
+                            <div className='allname'>{student.name}</div>
+                        </Link>
+                    </div>
+                )) : <p>Loading...</p>}
 
             </div>
         </div>

@@ -9,7 +9,7 @@ const Singleimage = () => {
     const [student, setStudent] = useState(null);
     useEffect(() => {
         const fetchStudent = async () => {
-            const response = await axios.get(`http://localhost:5000/api/students/${stu.id}`);
+            const response = await axios.get(`https://image-wallet-backend.vercel.app/api/students/${stu.id}`);
             setStudent(response.data);
         };
         fetchStudent();
@@ -18,7 +18,7 @@ const Singleimage = () => {
     const handleDownload = async () => {
         try {
             // Fetch the file
-            const response = await fetch(`http://localhost:5000/${student.profilePhoto}`);
+            const response = await fetch(`https://image-wallet-backend.vercel.app/${student.profilePhoto}`);
             if (!response.ok) {
                 throw new Error('Failed to fetch file');
             }
@@ -47,7 +47,7 @@ const Singleimage = () => {
                 { !student ? <h1>Loading </h1> : <> <div className='img-title'>{student.name}</div>
                 <div className='profilecard'>
                     <div className="imagesection">
-                        <img className='oneimage' src={`http://localhost:5000/${student.profilePhoto}`} alt={student.name} />
+                        <img className='oneimage' src={`https://image-wallet-backend.vercel.app/${student.profilePhoto}`} alt={student.name} />
                     </div>
                     <div className='imageinfo-box'>
                         <div className='name'>{student.name}</div>
@@ -61,22 +61,22 @@ const Singleimage = () => {
                     <h1>Suggested</h1>
                     <div className='suggested-box'>
                         <div className='suggested-card'>
-                            <img className='suggested-image' src={`http://localhost:5000/${student.profilePhoto}`} alt={student.name} />
+                            <img className='suggested-image' src={`https://image-wallet-backend.vercel.app/${student.profilePhoto}`} alt={student.name} />
                             <div className='suggested-name'>{student.name}</div>
                             {/* <div className='suggested-discription'>{student.discription}</div> */}
                         </div>
                         <div className='suggested-card'>
-                            <img className='suggested-image' src={`http://localhost:5000/${student.profilePhoto}`} alt={student.name} />
+                            <img className='suggested-image' src={`https://image-wallet-backend.vercel.app/${student.profilePhoto}`} alt={student.name} />
                             <div className='suggested-name'>{student.name}</div>
                             {/* <div className='suggested-discription'>{student.discription}</div> */}
                         </div>
                         <div className='suggested-card'>
-                            <img className='suggested-image' src={`http://localhost:5000/${student.profilePhoto}`} alt={student.name} />
+                            <img className='suggested-image' src={`https://image-wallet-backend.vercel.app/${student.profilePhoto}`} alt={student.name} />
                             <div className='suggested-name'>{student.name}</div>
                             {/* <div className='suggested-discription'>{student.discription}</div> */}
                         </div>
                         <div className='suggested-card'>
-                            <img className='suggested-image' src={`http://localhost:5000/${student.profilePhoto}`} alt={student.name} />
+                            <img className='suggested-image' src={`https://image-wallet-backend.vercel.app/${student.profilePhoto}`} alt={student.name} />
                             <div className='suggested-name'>{student.name}</div>
                             {/* <div className='suggested-discription'>{student.discription}</div> */}
                         </div>

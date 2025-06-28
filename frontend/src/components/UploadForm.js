@@ -135,7 +135,7 @@ const UploadForm = ({ fetchStudents }) => {
         formData.append('profilePhoto', profilePhoto);
 
         try {
-            await axios.post('http://localhost:5000/api/students', formData, {
+            await axios.post('https://image-wallet-backend.vercel.app/api/students', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             alert("Profile created successfully!");
