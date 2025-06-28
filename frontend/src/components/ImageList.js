@@ -19,26 +19,16 @@ const ImageList = () => {
         <div className='allimage-container-box'>
             <h2>Image List</h2>
             <div className='stdentslist'
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', // Responsive columns
-                    gap: '5px', // Space between images
-                    width: '97%',
-                }}>
-                {students.map((student) => (
-                    <>
-                        <div className="imagelist-frame-box" >
-                            <Link className='alllink' to={`/image/${student._id}`}>
-                                <img className='allimage'
-                                    src={`http://localhost:5000/${student.profilePhoto}`}
-                                    alt={student.name} />
-                                <div className='allname' key={student._id}>
-                                    {student.name}
-                                </div>
-                            </Link>
-                        </div>
-                    </>
-                ))}
+                >
+               {students ? students.map((student) => (
+  <div className="imagelist-frame-box" key={student._id}>
+    <Link className='alllink' to={`/image/${student._id}`}>
+      <img className='allimage' src={`http://localhost:5000/${student.profilePhoto}`} alt={student.name} />
+      <div className='allname'>{student.name}</div>
+    </Link>
+  </div>
+)) : <p>Loading...</p>}
+
             </div>
         </div>
     );

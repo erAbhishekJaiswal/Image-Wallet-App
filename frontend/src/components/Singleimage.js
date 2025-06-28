@@ -6,12 +6,7 @@ import { MdOutlineFileDownload } from "react-icons/md";
 
 const Singleimage = () => {
     const stu = useParams();
-    // console.log(stu.id);
-
     const [student, setStudent] = useState(null);
-
-
-
     useEffect(() => {
         const fetchStudent = async () => {
             const response = await axios.get(`http://localhost:5000/api/students/${stu.id}`);
@@ -19,12 +14,7 @@ const Singleimage = () => {
         };
         fetchStudent();
     }, [stu.id]);
-
     if (student) { var date = new Date(student.updatedAt); }
-
-
-    // if (!student) return <h1>Loading...</h1>;
-
     const handleDownload = async () => {
         try {
             // Fetch the file
@@ -54,7 +44,7 @@ const Singleimage = () => {
     return (
         <>
             <div className="profilemainbox">
-                { !student ? <h1>Loading </h1> : <> <div className='img-title'>{`Tittle`}</div>
+                { !student ? <h1>Loading </h1> : <> <div className='img-title'>{student.name}</div>
                 <div className='profilecard'>
                     <div className="imagesection">
                         <img className='oneimage' src={`http://localhost:5000/${student.profilePhoto}`} alt={student.name} />
@@ -73,22 +63,22 @@ const Singleimage = () => {
                         <div className='suggested-card'>
                             <img className='suggested-image' src={`http://localhost:5000/${student.profilePhoto}`} alt={student.name} />
                             <div className='suggested-name'>{student.name}</div>
-                            <div className='suggested-discription'>{student.discription}</div>
+                            {/* <div className='suggested-discription'>{student.discription}</div> */}
                         </div>
                         <div className='suggested-card'>
                             <img className='suggested-image' src={`http://localhost:5000/${student.profilePhoto}`} alt={student.name} />
                             <div className='suggested-name'>{student.name}</div>
-                            <div className='suggested-discription'>{student.discription}</div>
+                            {/* <div className='suggested-discription'>{student.discription}</div> */}
                         </div>
                         <div className='suggested-card'>
                             <img className='suggested-image' src={`http://localhost:5000/${student.profilePhoto}`} alt={student.name} />
                             <div className='suggested-name'>{student.name}</div>
-                            <div className='suggested-discription'>{student.discription}</div>
+                            {/* <div className='suggested-discription'>{student.discription}</div> */}
                         </div>
                         <div className='suggested-card'>
                             <img className='suggested-image' src={`http://localhost:5000/${student.profilePhoto}`} alt={student.name} />
                             <div className='suggested-name'>{student.name}</div>
-                            <div className='suggested-discription'>{student.discription}</div>
+                            {/* <div className='suggested-discription'>{student.discription}</div> */}
                         </div>
                     </div>
                 </div>

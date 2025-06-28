@@ -1,4 +1,4 @@
-.imageuploaderbox{
+/* .imageuploaderbox{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,7 +13,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin-top: 20px; */
     border: 1px solid rgb(255, 255, 255);
     padding: 20px;
     border-radius: 10px;
@@ -75,4 +74,121 @@
     .imageform{
         width: 80%;
     }
+} */
+
+
+
+
+
+
+
+
+/* UploadForm.css */
+
+/* body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 0;
+} */
+
+.imageuploaderbox {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.imageform .heading {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.inputbox {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input {
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+.input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+label[for="choose-input"] {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+label[for="choose-input"]:hover {
+    background-color: #0056b3;
+}
+
+span {
+    font-size: 14px;
+    color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.all-clear-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #dc3545;
+    transition: color 0.2s ease-in-out;
+}
+
+.all-clear-btn:hover {
+    color: #a71d2a;
+}
+
+.btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+.upload-icon {
+    font-size: 20px;
 }

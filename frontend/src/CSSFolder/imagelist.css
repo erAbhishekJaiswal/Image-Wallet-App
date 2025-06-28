@@ -1,4 +1,4 @@
-.allimage-container-box {
+/* .allimage-container-box {
     width: 100%;
     min-height: 90vh;
     margin: 0;
@@ -18,14 +18,10 @@
 
 .imagelist-frame-box {
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
     width: 235px;
     height: 280px;
     margin-left: 10px;
     padding: 5px;
-    /* border-radius: 50%; */
-    /* border: 1px solid black; */
 }
 
 .alllink {
@@ -38,7 +34,6 @@
     border: 2px solid rgb(204, 204, 204);
     border-radius: 8px;
     overflow: hidden;
-    /* background-color: rgb(249, 249, 249); */
 }
 
 .allimage {
@@ -56,4 +51,93 @@
     text-decoration: none;
     color: white;
     
+} */
+
+
+
+
+
+
+
+
+
+
+/* Updated Dark Modern UI - imagelist.css */
+
+.allimage-container-box {
+    /* width: 100%; */
+    min-height: 90vh;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.allimage-container-box h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+    border-bottom: 2px solid #00bcd4;
+    padding-bottom: 5px;
+}
+
+.stdentslist {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.imagelist-frame-box {
+    width: 240px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.imagelist-frame-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.alllink {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    width: 100%;
+}
+
+.allimage {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.imagelist-frame-box:hover .allimage {
+    transform: scale(1.03);
+}
+
+.allname {
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    background-color: #2a2a2a;
+    border-top: 1px solid #333;
 }
