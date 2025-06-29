@@ -6,7 +6,7 @@
 
 // const UploadForm = ({ fetchStudents }) => {
 //     const [name, setName] = useState('');
-//     const [discription, setdiscription] = useState('');
+//     const [description, setdescription] = useState('');
 //     // const [email, setEmail] = useState('');
 //     const [image, setimage] = useState();
 //     const [fileName, setFileName] = useState('No file chosen');
@@ -22,7 +22,7 @@
 //   };
 //   const clearalldata = () => {
 //     setName('');
-//     setdiscription('');
+//     setdescription('');
 //     setimage(null);
 //     setFileName('No file chosen')
 //   }
@@ -30,7 +30,7 @@
 //         e.preventDefault();
 //         const formData = new FormData();
 //         formData.append('name', name);
-//         formData.append('discription', discription);
+//         formData.append('description', description);
 //         formData.append('image', image);
 //         await axios.post('http://localhost:5000/api/students', formData, {
 //             headers: {
@@ -41,7 +41,7 @@
 //         // fetchStudents(); // Refresh the student list
 //         alert("Pofile created SuccseFully ")
 //         setName('');
-//         setdiscription('');
+//         setdescription('');
 //         // setEmail('');
 //         setimage(null);
 //     };
@@ -52,7 +52,7 @@
 //                 <div className="heading">Upload New Image</div>
 //                 <div className="inputbox">
 //                     <input className='input' type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required />
-//                 <input className='input' type="text" value={discription} onChange={(e) => setdiscription(e.target.value)} placeholder="Discription" required />
+//                 <input className='input' type="text" value={description} onChange={(e) => setdescription(e.target.value)} placeholder="description" required />
 //                 {/* <input className='inputbox' type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required /> */}
 //                 <input style={{display:'none'}} onChange={handleFileChange} className='input' id='choose-input' type="file" accept=".jpg,.jpeg,.png" 
 //                 // onChange={(e) => setimage(e.target.files[0])} 
@@ -105,7 +105,7 @@ import './../CSSFolder/uploadform.css'
 
 const UploadForm = ({ fetchStudents }) => {
     const [name, setName] = useState('');
-    const [discription, setDiscription] = useState('');
+    const [description, setdescription] = useState('');
     const [image, setimage] = useState(null);
     const [fileName, setFileName] = useState('No file chosen');
 
@@ -122,7 +122,7 @@ const UploadForm = ({ fetchStudents }) => {
 
     const clearAllData = () => {
         setName('');
-        setDiscription('');
+        setdescription('');
         setimage(null);
         setFileName('No file chosen');
     };
@@ -131,7 +131,7 @@ const UploadForm = ({ fetchStudents }) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('name', name);
-        formData.append('discription', discription);
+        formData.append('description', description);
         formData.append('image', image);
 
         try {
@@ -153,7 +153,7 @@ const UploadForm = ({ fetchStudents }) => {
                 <div className="heading">Upload New Image</div>
                 <div className="inputbox">
                     <input className='input' type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Name" required />
-                    <input className='input' type="text" value={discription} onChange={(e) => setDiscription(e.target.value)} placeholder="Description" required />
+                    <input className='input' type="text" value={description} onChange={(e) => setdescription(e.target.value)} placeholder="Description" required />
                     
                     <input 
                         style={{ display: 'none' }} 

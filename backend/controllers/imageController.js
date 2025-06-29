@@ -2,6 +2,7 @@
 const { v2: cloudinary } = require('cloudinary');
 const fs = require('fs');
 const Image = require('../models/Image');
+const path = require('path')
 
 cloudinary.config({
     cloud_name: 'daf5abr3x',
@@ -10,24 +11,58 @@ cloudinary.config({
 });
 
 
+// exports.createimages = async (req, res) => {
+//     try {
+//         const result = await cloudinary.uploader.upload(req.file.path);
+//         const image = new Image({
+//             name: req.body.name,
+//             discription: req.body.discription,
+//             // profilePhoto: req.file.path,
+//             url: result.secure_url,
+//             public_id: result.public_id,
+//         });
+//         await image.save();
+//         fs.unlinkSync(req.file.path); // cleanup
+//         res.json({ success: true, data: image });
+//     } catch (error) {
+//         res.status(400).json({ message: error.message });
+//     }
+// };
+
 exports.createimages = async (req, res) => {
     try {
-        const result = await cloudinary.uploader.upload(req.file.path);
+        const filePath = req.file.path;
+
+        // Upload to Cloudinary
+        const result = await cloudinary.uploader.upload(filePath);
+
+        // Create and save to MongoDB
         const image = new Image({
             name: req.body.name,
-            discription: req.body.discription,
-            // profilePhoto: req.file.path,
+            description: req.body.description, // corrected spelling
             url: result.secure_url,
             public_id: result.public_id,
         });
+
         await image.save();
-        fs.unlinkSync(req.file.path); // cleanup
+
+        // Delete file from uploads only after successful DB save
+        if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+        }
+
         res.json({ success: true, data: image });
-        // res.status(201).json(image);
     } catch (error) {
-        res.status(400).json({ message: error.message });
+        console.error('Image Upload Error:', error.message);
+        res.status(400).json({ success: false, message: error.message });
+
+        // Optional: try to clean up uploaded file in case of failure
+        if (req.file && fs.existsSync(req.file.path)) {
+            fs.unlinkSync(req.file.path);
+        }
     }
 };
+
 
 exports.getimages = async (req, res) => {
     try {
