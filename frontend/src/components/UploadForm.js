@@ -132,10 +132,10 @@ const UploadForm = ({ fetchStudents }) => {
         const formData = new FormData();
         formData.append('name', name);
         formData.append('discription', discription);
-        formData.append('profilePhoto', profilePhoto);
+        formData.append('image', profilePhoto);
 
         try {
-            await axios.post('https://image-wallet-backend.vercel.app/api/students', formData, {
+            await axios.post('https://image-wallet-backend.vercel.app/api/image', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             alert("Profile created successfully!");

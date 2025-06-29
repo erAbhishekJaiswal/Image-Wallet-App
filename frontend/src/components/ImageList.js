@@ -8,9 +8,9 @@ const ImageList = () => {
     const [students, setStudents] = useState([]);
 
     const fetchStudents = async () => {
-        const response = await axios.get('https://image-wallet-backend.vercel.app/api/students/');
+        const response = await axios.get('https://image-wallet-backend.vercel.app/api/image/');
         setStudents(response.data);
-        // console.log(response.data);
+        console.log(response.data);
     };
     useEffect(() => {
         fetchStudents();
@@ -23,7 +23,7 @@ const ImageList = () => {
                 {students ? students.map((student) => (
                     <div className="imagelist-frame-box" key={student._id}>
                         <Link className='alllink' to={`/image/${student._id}`}>
-                            <img className='allimage' src={`https://image-wallet-backend.vercel.app/${student.profilePhoto}`} alt={student.name} />
+                            <img className='allimage' src={student.url} alt={student.name} />
                             <div className='allname'>{student.name}</div>
                         </Link>
                     </div>
