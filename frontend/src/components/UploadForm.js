@@ -8,7 +8,7 @@
 //     const [name, setName] = useState('');
 //     const [discription, setdiscription] = useState('');
 //     // const [email, setEmail] = useState('');
-//     const [profilePhoto, setProfilePhoto] = useState();
+//     const [image, setimage] = useState();
 //     const [fileName, setFileName] = useState('No file chosen');
 
 //   const handleFileChange = (event) => {
@@ -23,7 +23,7 @@
 //   const clearalldata = () => {
 //     setName('');
 //     setdiscription('');
-//     setProfilePhoto(null);
+//     setimage(null);
 //     setFileName('No file chosen')
 //   }
 //     const handleSubmit = async (e) => {
@@ -31,7 +31,7 @@
 //         const formData = new FormData();
 //         formData.append('name', name);
 //         formData.append('discription', discription);
-//         formData.append('profilePhoto', profilePhoto);
+//         formData.append('image', image);
 //         await axios.post('http://localhost:5000/api/students', formData, {
 //             headers: {
 //                 'Content-Type': 'multipart/form-data',
@@ -43,7 +43,7 @@
 //         setName('');
 //         setdiscription('');
 //         // setEmail('');
-//         setProfilePhoto(null);
+//         setimage(null);
 //     };
 
 //     return (
@@ -55,7 +55,7 @@
 //                 <input className='input' type="text" value={discription} onChange={(e) => setdiscription(e.target.value)} placeholder="Discription" required />
 //                 {/* <input className='inputbox' type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" required /> */}
 //                 <input style={{display:'none'}} onChange={handleFileChange} className='input' id='choose-input' type="file" accept=".jpg,.jpeg,.png" 
-//                 // onChange={(e) => setProfilePhoto(e.target.files[0])} 
+//                 // onChange={(e) => setimage(e.target.files[0])} 
 //                 required 
 //                 />
 //                 { fileName === 'No file chosen' ? <label htmlFor="choose-input" 
@@ -106,16 +106,16 @@ import './../CSSFolder/uploadform.css'
 const UploadForm = ({ fetchStudents }) => {
     const [name, setName] = useState('');
     const [discription, setDiscription] = useState('');
-    const [profilePhoto, setProfilePhoto] = useState(null);
+    const [image, setimage] = useState(null);
     const [fileName, setFileName] = useState('No file chosen');
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         if (file) {
-            setProfilePhoto(file); // ✅ Set the file for upload
+            setimage(file); // ✅ Set the file for upload
             setFileName(file.name);
         } else {
-            setProfilePhoto(null);
+            setimage(null);
             setFileName('No file chosen');
         }
     };
@@ -123,7 +123,7 @@ const UploadForm = ({ fetchStudents }) => {
     const clearAllData = () => {
         setName('');
         setDiscription('');
-        setProfilePhoto(null);
+        setimage(null);
         setFileName('No file chosen');
     };
 
@@ -132,7 +132,7 @@ const UploadForm = ({ fetchStudents }) => {
         const formData = new FormData();
         formData.append('name', name);
         formData.append('discription', discription);
-        formData.append('image', profilePhoto);
+        formData.append('image', image);
 
         try {
             await axios.post('https://image-wallet-backend.vercel.app/api/image', formData, {
@@ -164,7 +164,7 @@ const UploadForm = ({ fetchStudents }) => {
                         required 
                     />
 
-                    {profilePhoto ? (
+                    {image ? (
                         <span style={{ marginLeft: '10px', color: '#555' }}>
                             {fileName} 
                             <button className='all-clear-btn' onClick={clearAllData} type="button"> <RxCross2 /></button>
