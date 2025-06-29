@@ -1,14 +1,12 @@
 // const Student = require('../models/Student');
-const { v2: cloudinary } = require('cloudinary');
-const fs = require('fs');
+// const { v2: cloudinary } = require('cloudinary');
+// const fs = require('fs');
 const Image = require('../models/Image');
-const path = require('path')
+const { imageuploader} = require('../utils/cloudinary');
+// const path = require('path')
 
-cloudinary.config({
-    cloud_name: 'daf5abr3x',
-    api_key: '614871955289598',
-    api_secret: 'i2upONpI5DfZJYjMWFaV7X_UCXw',
-});
+
+
 
 
 // exports.createimages = async (req, res) => {
@@ -31,25 +29,24 @@ cloudinary.config({
 
 exports.createimages = async (req, res) => {
     try {
+        const { name, description } = req.body;
         const filePath = req.file.path;
-
-        // Upload to Cloudinary
-        const result = await cloudinary.uploader.upload(filePath);
+        const result = await imageuploader(filePath);
 
         // Create and save to MongoDB
         const image = new Image({
-            name: req.body.name,
-            description: req.body.description, // corrected spelling
+            name: name,
+            description: description, // corrected spelling
             url: result.secure_url,
             public_id: result.public_id,
         });
 
         await image.save();
 
-        // Delete file from uploads only after successful DB save
-        if (fs.existsSync(filePath)) {
-            fs.unlinkSync(filePath);
-        }
+        // // Delete file from uploads only after successful DB save
+        // if (fs.existsSync(filePath)) {
+        //     fs.unlinkSync(filePath);
+        // }
 
         res.json({ success: true, data: image });
     } catch (error) {
