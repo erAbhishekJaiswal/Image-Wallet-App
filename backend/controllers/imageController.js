@@ -27,36 +27,61 @@ const { imageuploader} = require('../utils/cloudinary');
 //     }
 // };
 
+// exports.createimages = async (req, res) => {
+//     try {
+//         const { name, description } = req.body;
+//         const filePath = req.file.path;
+//         const result = await imageuploader(filePath);
+
+//         // Create and save to MongoDB
+//         const image = new Image({
+//             name: name,
+//             description: description, // corrected spelling
+//             url: result.secure_url,
+//             public_id: result.public_id,
+//         });
+
+//         await image.save();
+
+//         // // Delete file from uploads only after successful DB save
+//         // if (fs.existsSync(filePath)) {
+//         //     fs.unlinkSync(filePath);
+//         // }
+
+//         res.json({ success: true, data: image });
+//     } catch (error) {
+//         console.error('Image Upload Error:', error.message);
+//         res.status(400).json({ success: false, message: error.message });
+
+//         // Optional: try to clean up uploaded file in case of failure
+//         if (req.file && fs.existsSync(req.file.path)) {
+//             fs.unlinkSync(req.file.path);
+//         }
+//     }
+// };
+
+
 exports.createimages = async (req, res) => {
     try {
-        const { name, description } = req.body;
-        const filePath = req.file.path;
-        const result = await imageuploader(filePath);
+        const buffer = req.file.buffer; // ✅ Access image buffer
 
-        // Create and save to MongoDB
+        // Upload to Cloudinary
+        const result = await imageuploader(buffer);
+
+        // Save to MongoDB
         const image = new Image({
-            name: name,
-            description: description, // corrected spelling
+            name: req.body.name,
+            description: req.body.description,
             url: result.secure_url,
             public_id: result.public_id,
         });
 
         await image.save();
 
-        // // Delete file from uploads only after successful DB save
-        // if (fs.existsSync(filePath)) {
-        //     fs.unlinkSync(filePath);
-        // }
-
         res.json({ success: true, data: image });
     } catch (error) {
         console.error('Image Upload Error:', error.message);
         res.status(400).json({ success: false, message: error.message });
-
-        // Optional: try to clean up uploaded file in case of failure
-        if (req.file && fs.existsSync(req.file.path)) {
-            fs.unlinkSync(req.file.path);
-        }
     }
 };
 

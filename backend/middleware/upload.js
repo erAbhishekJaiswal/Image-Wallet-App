@@ -34,7 +34,7 @@
 
 // const express = require('express');
 // const router = express.Router();
-const multer = require('multer');
+// const multer = require('multer');
 // const { v2: cloudinary } = require('cloudinary');
 // const Image = require('../models/Image');
 // const fs = require('fs');
@@ -45,14 +45,14 @@ const multer = require('multer');
 //   api_secret: process.env.CLOUD_API_SECRET,
 // });
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, 'uploads/'),
-  filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname),
-});
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => cb(null, 'uploads/'),
+//   filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname),
+// });
 
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
 
-module.exports = upload;
+// module.exports = upload;
 
 // router.post('/', upload.single('image'), async (req, res) => {
 //   try {
@@ -69,3 +69,15 @@ module.exports = upload;
 //   }
 // });
 
+
+
+
+
+
+
+
+
+const multer = require('multer');
+const storage = multer.memoryStorage(); // Use memory instead of disk
+const upload = multer({ storage });
+module.exports = upload;

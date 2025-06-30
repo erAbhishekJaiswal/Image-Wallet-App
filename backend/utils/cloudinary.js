@@ -10,18 +10,36 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET || 'i2upONpI5DfZJYjMWFaV7X_UCXw'
 });
 
-exports.imageuploader = async (filepath) =>{
-    try {
-        const result = await cloudinary.uploader.upload(filepath,{
+// exports.imageuploader = async (filepath) =>{
+//     try {
+//         const result = await cloudinary.uploader.upload(filepath,{
+//             folder: 'imagewallet',
+//             resource_type: 'auto'
+//         });
+//         fs.unlinkSync(filepath);
+//         return result;
+//     } catch (error) {
+//         if (fs.existsSync(filepath)) {
+//             fs.unlinkSync(filepath);
+//         }
+//         throw error;
+//     }
+// } 
+
+
+
+
+
+
+
+exports.imageuploader = async (buffer) => {
+    return new Promise((resolve, reject) => {
+        cloudinary.uploader.upload_stream({
             folder: 'imagewallet',
-            resource_type: 'auto'
-        });
-        fs.unlinkSync(filepath);
-        return result;
-    } catch (error) {
-        if (fs.existsSync(filepath)) {
-            fs.unlinkSync(filepath);
-        }
-        throw error;
-    }
-} 
+            resource_type: 'auto',
+        }, (error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+        }).end(buffer);
+    });
+};
